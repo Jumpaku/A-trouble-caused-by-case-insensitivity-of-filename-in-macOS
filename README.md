@@ -4,10 +4,9 @@ Although I used the same docker image to run docker containers in both local and
 A docker container in macOS succeeded to run gradle build.
 Another docker container in GitHub Actions failed to run it.
 
-
 ## Problem
 
-https://github.com/Jumpaku/A-trouble-caused-by-case-insensitivity-of-filename-in-macOS/tree/a7656c48e3eae79206c08621f8576375fa3542db
+https://github.com/Jumpaku/A-trouble-caused-by-case-insensitivity-of-filename-in-macOS/tree/with-problem
 
 ### macOS Big Sur Version 11.2.3
 
@@ -50,11 +49,13 @@ Error: Process completed with exit code 1.
 ## Cause
 
 There is a typo `testData.json`, which should be `TestData.json`, in `src/test/kotlin/jumpaku/ConcatenateTest.kt`.
-Unfortunately, unit tests run by the docker container in macOS do not detect this typo.
-This is because macOS is not case-sensitive regarding filename, and the docker container runs on macOS ignores case of filenames of mounted files.
-However, unit tests run by the docker container run by GitHub Actions detects the typo and fails.
+Unfortunately, a unit test run by the docker container on macOS does not detect this typo.
+This is because macOS is not case-sensitive regarding filename, and the docker container on macOS ignores case of filenames which are mounted.
+However, a unit test run by the docker container on GitHub Actions detects the typo and fails.
 
 ## Fix
+
+https://github.com/Jumpaku/A-trouble-caused-by-case-insensitivity-of-filename-in-macOS/tree/fixed
 
 ### macOS Big Sur Version 11.2.3
 
@@ -79,11 +80,8 @@ BUILD SUCCESSFUL in 1m 0s
 ```
 ...
 
-BUILD SUCCESSFUL
+BUILD SUCCESSFUL in 39s
 
 ...
 ```
-
-## Cause
-
 
