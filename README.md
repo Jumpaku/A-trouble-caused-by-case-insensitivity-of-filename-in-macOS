@@ -85,3 +85,7 @@ BUILD SUCCESSFUL in 39s
 ...
 ```
 
+## Summary
+
+I have encountered a trouble caused by case-insensitivity of filename in macOS.
+The case-insensitivity of filename in macOS seems a commonplace story ( https://www.google.com/search?q=macos+case+sensitive ).
