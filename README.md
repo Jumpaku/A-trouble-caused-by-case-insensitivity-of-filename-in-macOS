@@ -48,7 +48,7 @@ Error: Process completed with exit code 1.
 
 ## Cause
 
-There is a typo `testData.json`, which should be `TestData.json`, in `src/test/kotlin/jumpaku/ConcatenateTest.kt`.
+There is a typo `testData.json`, which should be `TestData.json`, at line 15 in `src/test/kotlin/jumpaku/ConcatenateTest.kt`.
 Unfortunately, a unit test run by the docker container on macOS does not detect this typo.
 This is because macOS is not case-sensitive regarding filename, and the docker container on macOS ignores case of filenames which are mounted.
 However, a unit test run by the docker container on GitHub Actions detects the typo and fails.
