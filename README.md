@@ -1,7 +1,7 @@
 # A trouble caused by case-insensitivity of filename in macOS
 
-Although I used the same docker image to run docker containers in both local and remote environment, the behaviors were different.
-A docker container in macOS succeeded to run gradle build.
+Although I used the same docker image to run docker containers in both local and remote environments, the behaviors were different.
+A docker container in macOS succeeded to run Gradle build.
 Another docker container in GitHub Actions failed to run it.
 
 ## Problem
@@ -50,7 +50,7 @@ Error: Process completed with exit code 1.
 
 There is a typo `testData.json`, which should be `TestData.json`, [at line 15 in `src/test/kotlin/jumpaku/ConcatenateTest.kt`](https://github.com/Jumpaku/A-trouble-caused-by-case-insensitivity-of-filename-in-macOS/blob/a7656c48e3eae79206c08621f8576375fa3542db/src/test/kotlin/jumpaku/ConcatenateTest.kt#L15).
 Unfortunately, a unit test run by the docker container on macOS does not detect this typo.
-This is because macOS is not case-sensitive regarding filename, and the docker container on macOS ignores case of filenames which are mounted.
+This is because macOS is not case-sensitive regarding filename, and the docker container on macOS ignores the case of filenames that are mounted.
 However, a unit test run by the docker container on GitHub Actions detects the typo and fails.
 
 ## Fix
