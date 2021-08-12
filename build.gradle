@@ -1,0 +1,17 @@
+plugins {
+    id("org.jetbrains.kotlin.jvm").version("1.5.20")
+    id("org.jetbrains.kotlin.plugin.serialization").version("1.5.20")
+}
+
+group = "jumpaku"
+version = "1.0.0"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation("org.hamcrest:hamcrest:2.1")
+    testImplementation("junit:junit:4.12")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2")
+}

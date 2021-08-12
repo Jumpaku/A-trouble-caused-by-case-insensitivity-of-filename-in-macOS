@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+
+  # docker-compose up test
+  build:
+    image: 'gradle:jdk15'
+    command: ["./gradlew", "build"]
+    working_dir: '/home/gradle/project'
+    volumes:
+      - './:/home/gradle/project'
