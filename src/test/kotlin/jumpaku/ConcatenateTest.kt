@@ -12,7 +12,7 @@ class ConcatenateTest {
     @Serializable
     data class TestData(val input: List<String>, val result: String)
 
-    val testDataJson = this::class.java.getResource("/jumpaku/testData.json").readText()
+    val testDataJson = this::class.java.getResource("/jumpaku/TestData.json").readText()
     val testData = Json.decodeFromString<TestData>(testDataJson)
 
     @Test
